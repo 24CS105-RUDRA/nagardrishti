@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1F3A6E;
+  --color-navy-light: #2A4A8E;
+  --color-navy-dark: #162B52;
+  --color-saffron: #E8891A;
+  --color-saffron-light: #FFF3E0;
+  --color-green-india: #138808;
+  --color-bg-main: #F4F6F9;
+  --color-bg-card: #FFFFFF;
+  --color-border-card: #DDE3EA;
+  --color-text-heading: #1F2937;
+  --color-text-body: #4B5563;
+  --color-text-muted: #6B7280;
+  --color-status-green: #2E7D32;
+  --color-status-green-bg: #E8F5E9;
+  --color-status-amber: #ED9B00;
+  --color-status-amber-bg: #FFF8E1;
+  --color-status-red: #C62828;
+  --color-status-red-bg: #FFEBEE;
+  --color-status-blue: #1565C0;
+  --color-status-blue-bg: #E3F2FD;
+  --font-sans: 'Noto Sans', system-ui, sans-serif;
+}
+
+* {
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F4F6F9;
+  color: #1F2937;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F6F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4CAD4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Leaflet overrides for light theme */
+.leaflet-container {
+  font-family: var(--font-sans) !important;
+  background: #F4F6F9;
+}
+
+/* Focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid #1F3A6E;
+  outline-offset: 2px;
+}
+
+/* Skeleton loader animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #E5E7EB 25%, #F3F4F6 50%, #E5E7EB 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* Alert row highlight animation */
+@keyframes alertHighlight {
+  0% { background-color: #FFF3E0; }
+  100% { background-color: transparent; }
+}
+.alert-new-row {
+  animation: alertHighlight 3s ease-out;
+}
+
+/* Toast animation */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.toast-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+}
